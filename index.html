@@ -37,7 +37,8 @@
               <a class="link" href="./portfolio.html">Портфолио</a>
             </li>
             <li class="item">
-              <a class="link" href="#contacts">Контакты</a></li>
+              <a class="link" href="#contacts">Контакты</a>
+            </li>
           </ul>
         </nav>
         <ul class="list contacts-list">
@@ -537,8 +538,29 @@
             </li>
           </ul>
         </div>
+        <div class="mailing">
+          <h3 class="mailing-title">Подпишитесь на рассылку</h3>
+          <form class="js-speaker-form">
+            <input type="email" class="mail-input" name="email" placeholder="E-mail" />
+            
+            <button type="submit" class="mail-btn" >
+              <p>Подписаться</p>
+              <svg class="mail-icon" width="24" height="24">
+                <use href="./images/sprite.svg#icon-send"></use>
+              </svg>
+            </button>
+          </form> 
+        </div>
       </div>
     </footer>
     <script src="./js/modal.js"></script>
+    <script>
+      (() => {
+        document.querySelector('.js-speaker-form').addEventListener('submit', e => {
+          e.preventDefault();
+          new FormData(e.currentTarget).forEach((value, name) => console.log('${name}: ${value}'));
+        });
+      })();
+    </script>
   </body>
 </html>
