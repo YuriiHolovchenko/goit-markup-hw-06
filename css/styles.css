@@ -290,7 +290,9 @@ body {
 }
 .form-field{
     position: relative;
-    margin-bottom: 26px;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 10px;
 }
 .form-title{
     margin-top: 40px;
@@ -302,7 +304,9 @@ body {
     line-height: 1.15;
     letter-spacing: 0.03em;
     color: var(--primary-text-color);
-
+}
+.form-container{
+    position: relative;
 }
 .form-input{
     width: 100%;
@@ -336,9 +340,8 @@ body {
 }   
 /* Заголовки рядків форми */
 .form-label{
-    position: absolute;
-    top: -16px;
-    left: 0;
+    display: inline-block;
+    margin-bottom: 4px;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.01em;
@@ -355,6 +358,7 @@ body {
 .textarea{
     resize: none;
     padding-left: 10px;
+    margin-bottom: 10px;
 }
 /* "галочка" чекбокс */
 .checkbox-label{
@@ -393,11 +397,25 @@ body {
     outline-color: var(--accent-color);
     background-color: var(--accent-color);
 }
+.checkbox:focus+.custom-checkbox {
+    outline-color: var(--accent-color);
+    /* background-color: var(--accent-color); */
+}
+.polyce{
+    color: var(--secondary-text-color);
+}
+.contract{
+    color: var(--accent-color);
+}
+.contract:focus{
+    outline: 1px solid var(--accent-color);
+}
 /* Кнопка відправлення форми */
 .form .hero-btn{
     margin: 0 auto;
     width: 200px;
 }
+
 
 /* ================================== */
 
