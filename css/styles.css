@@ -38,7 +38,6 @@ body {
  }
 
 .container{
-    /* outline: 1px solid red; */
     width: 1200px;
     padding-left: 15px;
     padding-right: 15px;
@@ -230,6 +229,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 10;
     background-color: rgba(0, 0, 0, 0.2);
 
     opacity: 1;
@@ -273,6 +273,133 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: transparent;
 }
+.modal-btn:hover,
+.modal-btn:focus{
+    fill:var(--accent-color);
+}
+/* ============================== */
+/* modal    F  o  r  m            */ 
+/* ============================== */
+
+.form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 40px;
+}
+.form-field{
+    position: relative;
+    margin-bottom: 26px;
+}
+.form-title{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+    letter-spacing: 0.03em;
+    color: var(--primary-text-color);
+
+}
+.form-input{
+    width: 100%;
+    padding: 11px 10px 11px 42px;
+    margin:0;
+
+    font: inherit;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline: transparent;
+} 
+/* Ефект focus на комірках та іконках форми */
+.form-field:focus-within .form-input,
+.form-input:not(:placeholder-shown){
+    border: 1px solid var(--accent-color);
+}  
+.form-input:focus{
+    outline:var(--accent-color);
+}  
+.form-input:focus ~ .icon,
+.form-input:not(:placeholder-shown) ~ .icon{
+    fill: var(--accent-color);
+}
+/* Ефект Hover на комірках форми */
+.form-input:hover{
+    border: 1px solid var(--accent-color);
+    cursor: pointer;
+}
+.form-input:hover ~.icon{
+    fill:var(--accent-color);
+}   
+/* Заголовки рядків форми */
+.form-label{
+    position: absolute;
+    top: -16px;
+    left: 0;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    color: var(--secondary-text-color);
+}
+/* Вирівнювання іконок */
+.icon{
+    position: absolute;
+    top:50%;
+    left: 12px;
+    transform: translateY(-50%);
+}
+/* Налаштування текстового поля зворотнього звязку */
+.textarea{
+    resize: none;
+    padding-left: 10px;
+}
+/* "галочка" чекбокс */
+.checkbox-label{
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px; 
+}
+.checkbox{
+    appearance: none;
+}
+.custom-checkbox{
+    position:absolute;
+    padding: 0;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);    
+
+    width: 16px;
+    height: 15px;
+
+    border-radius: 2px;
+    outline: 2px solid var(--primary-text-color);
+    outline-offset: -2px;
+
+    transition: outline-color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
+}
+.checkbox-icon{
+    opacity: 0;
+    transition: opacity 250ms var(--timing-function),
+}
+.checkbox:checked+.custom-checkbox .checkbox-icon{
+    opacity: 1;
+}
+.checkbox:checked+.custom-checkbox{
+    outline-color: var(--accent-color);
+    background-color: var(--accent-color);
+}
+/* Кнопка відправлення форми */
+.form .hero-btn{
+    margin: 0 auto;
+    width: 200px;
+}
+
+/* ================================== */
 
 /* Назви секцій  */
 .section-title {
@@ -579,47 +706,68 @@ color: var(--primary-text-color);
 }
 
 /*    Підписатись на розсилку */
-.mail-input::placeholder{
-color:rgba(255, 255, 255, 0.6);
-font-size: 16px;
-line-height: 1.25;
 
+.fform{
+    display: flex;
+    align-items: center;
+    
+    flex-direction: row; 
+    flex-wrap: wrap;
 }
-.mail-input:not(:placeholder-shown) {
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.9);
+.fform-field{
+    position:relative;
+    overflow: hidden;
 }
-
-
-.mail-input {
+.mail-input {      
     height: 50px;
     min-width: 360px;
+    /* margin-right: 12px; */
     padding-left: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    background-color: transparent;
-    margin-right: 12px;
-    margin-bottom: 10px;
+   
+    font: inherit;
     font-size: 16px;
-    line-height: 1.25;
-    color:rgba(255, 255, 255, 0.3);
-}
-.mail-input:checked{
+    line-height: 1.2;
+    letter-spacing: 0.03em; 
+   
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px; 
+    
     background-color: transparent;
-    border: none;
-    padding-left: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    outline: transparent;
 }
-/* .mail-input input {
-    background-color: var(--third-bg-color);
-    padding-left: 10px;
-    color: red;
-    text-align: right;
-} */
+
+.fform-label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+
+    transform: translate(0, -50%);
+    transition: transform 250ms var(--timing-function);
+}
+
+.mail-input:focus + .fform-label,
+.mail-input:not(:placeholder-shown) + .fform-label {
+    transform: translate(-150%, -50%);
+}
+.fform-field:focus-within{
+    outline: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+}
+/* --------- */
 .mail-btn{
     position: relative;
 
     height: 50px;
     min-width: 200px;
+    margin-left: 12px;
     padding: 10px 60px 10px 30px;
 
     font-weight: 700;
